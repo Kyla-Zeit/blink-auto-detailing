@@ -1,3 +1,4 @@
+// components/footer.tsx
 import Image from "next/image"
 import { Facebook, Instagram, Mail } from "lucide-react"
 
@@ -7,16 +8,18 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Brand */}
-            <div>
+            {/* Brand (black tile + white copy, matching your logo background) */}
+            <div className="rounded-xl bg-[#1e1e1e] p-6 md:p-7 lg:p-8 shadow-sm">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/340403833_442597811409467_9074482191282913785_n-lmCMffnwvhwG8LyZNAeLGiIVArZUtC.jpg"
+                // use the EXACT file you're using now, placed in /public
+                src="/logo-blink.dfc256cf.png"
                 alt="Blink Auto Detailing"
-                width={180}
-                height={60}
-                className="h-12 w-auto mb-4"
+                width={220}
+                height={80}
+                priority
+                className="h-14 w-auto mb-4"
               />
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm leading-relaxed text-white/85">
                 Where every detail meets excellence. Proudly serving Niagara with premium auto detailing services.
               </p>
             </div>
@@ -66,10 +69,12 @@ export function Footer() {
                   </a>
                 </li>
                 <li className="pt-2">
-                  181 South Service Road West, Unit 2<br />
+                  181 South Service Road West, Unit 2
+                  <br />
                   Grimsby, ON L3M 4H6
                 </li>
               </ul>
+
               <div className="flex items-center gap-4 mt-4">
                 <a
                   href="https://www.facebook.com/blinkautodetailing"
