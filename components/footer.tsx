@@ -8,7 +8,7 @@ export function Footer() {
         {/* Narrower content = less dead air */}
         <div className="mx-auto max-w-4xl">
           {/* Centered, tighter grid */}
-          <div className="grid md:grid-cols-2 gap-10 md:gap-14 place-items-center text-center mb-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-8">
             {/* Quick Links */}
             <div>
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
