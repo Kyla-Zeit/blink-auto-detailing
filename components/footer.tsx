@@ -1,30 +1,13 @@
 // components/footer.tsx
-import Image from "next/image";
 import { Facebook, Instagram, Mail } from "lucide-react";
-
-// IMPORTANT: this file must exist at /public/logo-blink.dfc256cf.png
-import blinkLogo from "@/public/logo-blink.dfc256cf.png";
 
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Brand (black tile + white copy, matching your logo background) */}
-            <div className="rounded-xl bg-[#1e1e1e] p-6 md:p-7 lg:p-8 shadow-sm">
-              <Image
-                src={blinkLogo}
-                alt="Blink Auto Detailing"
-                priority
-                // static import provides intrinsic width/height; this just controls render size
-                className="h-14 w-auto mb-4"
-              />
-              <p className="text-sm leading-relaxed text-white/85">
-                Where every detail meets excellence. Proudly serving Niagara with premium auto detailing services.
-              </p>
-            </div>
-
+          {/* Two columns only: Quick Links + Get in Touch */}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Quick Links */}
             <div>
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
@@ -52,7 +35,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Contact */}
+            {/* Get in Touch */}
             <div>
               <h3 className="font-semibold text-foreground mb-4">Get in Touch</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
