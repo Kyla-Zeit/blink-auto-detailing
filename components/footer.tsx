@@ -1,13 +1,14 @@
 // components/footer.tsx
-import { Facebook, Instagram, Mail } from "lucide-react";
+import { Facebook, Instagram, Mail } from "lucide-react"
 
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Two columns only: Quick Links + Get in Touch */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+        {/* Narrower content = less dead air */}
+        <div className="mx-auto max-w-4xl">
+          {/* Centered, tighter grid */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 place-items-center text-center mb-8">
             {/* Quick Links */}
             <div>
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
@@ -59,7 +60,7 @@ export function Footer() {
                 </li>
               </ul>
 
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center justify-center gap-4 mt-4">
                 <a
                   href="https://www.facebook.com/blinkautodetailing"
                   target="_blank"
@@ -98,5 +99,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
