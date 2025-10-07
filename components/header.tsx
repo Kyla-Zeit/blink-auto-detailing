@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // static import = bulletproof on GitHub Pages
-import blinkLogo from "@/../public/logo-blink.png"; // file is public/logo-blink.png
+import blinkLogo from "@/public/logo-blink.png";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
