@@ -9,7 +9,7 @@ import Image from "next/image";
 // put the 4K transparent PNG at: public/logo-blink.png
 import blinkLogo from "@/public/logo-blink.png";
 
-export default function Header() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
