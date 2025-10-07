@@ -7,7 +7,7 @@ import Image from "next/image";
 // Logo file must exist at: public/logo-blink.png
 import blinkLogo from "@/public/logo-blink.png";
 
-export default function Header() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
