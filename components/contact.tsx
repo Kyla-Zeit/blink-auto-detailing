@@ -40,7 +40,7 @@ export function Contact() {
                     <a
   href="tel:2896825465"
   aria-label="Call Blink Auto Detailing at 289 682 5465"
-  className="text-2xl md:text-3xl font-extrabold tracking-tight
+  className="font-extrabold tracking-tight
              text-foreground visited:text-foreground hover:text-foreground/90
              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
              rounded-sm tabular-nums"
