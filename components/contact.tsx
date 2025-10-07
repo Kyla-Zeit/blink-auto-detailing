@@ -38,11 +38,15 @@ export function Contact() {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Call or Text</h3>
                     <a
-                      href="tel:2896825465"
-                      className="text-2xl font-bold text-accent hover:text-accent/80 transition-colors"
-                    >
-                      (289) 682-5465
-                    </a>
+  href="tel:2896825465"
+  aria-label="Call Blink Auto Detailing at 289 682 5465"
+  className="text-3xl md:text-4xl font-extrabold tracking-tight
+             text-foreground visited:text-foreground hover:text-foreground/90
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
+             rounded-sm tabular-nums"
+>
+  (289) 682-5465
+</a>
                     <p className="text-sm text-muted-foreground mt-2">Available for quotes and bookings</p>
                   </div>
                 </div>
