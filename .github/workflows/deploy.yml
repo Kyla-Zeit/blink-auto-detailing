@@ -26,22 +26,22 @@ jobs:
         with:
           node-version: '20'
 
+      # Do NOT specify a pnpm version here; it will read from package.json's "packageManager"
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
         with:
-          version: 9
           run_install: false
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
-      - name: Build
+      - name: Build (static export via next.config.mjs)
         run: pnpm build
 
-      - name: Export static site
+      - name: Prepare out dir for Pages
         run: |
-          pnpm export
-          touch out/.nojekyll   # folders beginning with _ survive on Pages
+          test -d out || (echo "out/ not found" && ls -la && exit 1)
+          touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
