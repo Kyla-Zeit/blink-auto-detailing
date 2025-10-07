@@ -32,21 +32,15 @@ export function Contact() {
             <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-accent" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Call or Text</h3>
-                    <a
-  href="tel:2896825465"
-  aria-label="Call Blink Auto Detailing at 289 682 5465"
-  className="font-extrabold tracking-tight
-             text-foreground visited:text-foreground hover:text-foreground/90
-             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
-             rounded-sm tabular-nums"
->
-  (289) 682-5465
-</a>
+                    <a  href="tel:2896825465" className="text-lg text-primary hover:text-primary/80 transition-colors">
+                      (289) 682-5465
+                      </a>
+
                     <p className="text-sm text-muted-foreground mt-2">Available for quotes and bookings</p>
                   </div>
                 </div>
