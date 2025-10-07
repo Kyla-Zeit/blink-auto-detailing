@@ -12,7 +12,7 @@ export function Footer() {
             <div className="rounded-xl bg-[#1e1e1e] p-6 md:p-7 lg:p-8 shadow-sm">
               <Image
                 // use the EXACT file you're using now, placed in /public
-                src="/logo-blink.dfc256cf.png"
+                src="public/logo-blink.dfc256cf.png"
                 alt="Blink Auto Detailing"
                 width={220}
                 height={80}
