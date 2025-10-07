@@ -38,7 +38,7 @@ export function Header() {
             <Image
               // If you prefer your remote image, paste that URL below instead of /logo-blink.png
               // src="https://hebbokandni1as6yf.public.blob.vercel-storage.com/...jpg"
-              src="/logo-blink.png"
+              src="public/logo-blink.png"
               alt="Blink Auto Detailing"
               priority
               width={360}
