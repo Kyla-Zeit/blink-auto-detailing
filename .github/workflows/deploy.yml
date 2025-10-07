@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -24,9 +24,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      # Do NOT specify a pnpm version here; it will read from package.json's "packageManager"
+      # Reads the version from package.json "packageManager"
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
         with:
@@ -35,13 +35,11 @@ jobs:
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
-      - name: Build (static export via next.config.mjs)
+      - name: Build (Next 15 writes to out/)
         run: pnpm build
 
-      - name: Prepare out dir for Pages
-        run: |
-          test -d out || (echo "out/ not found" && ls -la && exit 1)
-          touch out/.nojekyll
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
