@@ -1,105 +1,112 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Phone } from "lucide-react"
-import Image from "next/image"
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+// keep if you use it elsewhere; otherwise you can remove
+import { Button } from "@/components/ui/button";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#about", label: "About" },
-    { href: "#reviews", label: "Reviews" },
-    { href: "#contact", label: "Contact" },
-  ]
+    { href: "/#services", label: "Services" },
+    { href: "/#about",    label: "About" },
+    { href: "/#reviews",  label: "Reviews" },
+    { href: "/#contact",  label: "Contact" },
+  ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300
+      ${isScrolled
+        ? "bg-black/95 backdrop-blur-sm border-b border-white/10"
+        : "bg-black/90"}`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-[clamp(64px,7.5vw,84px)]">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/340403833_442597811409467_9074482191282913785_n-lmCMffnwvhwG8LyZNAeLGiIVArZUtC.jpg"
+              // If you prefer your remote image, paste that URL below instead of /logo-blink.png
+              // src="https://hebbokandni1as6yf.public.blob.vercel-storage.com/...jpg"
+              src="/logo-blink.png"
               alt="Blink Auto Detailing"
-              width={180}
-              height={60}
-              className="h-14 w-auto"
+              priority
+              width={360}
+              height={90}
+              className="h-[clamp(52px,6.2vw,78px)] w-auto select-none"
             />
-          </a>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-7">
+            {navLinks.map(l => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-white/90 hover:text-white transition-colors"
               >
-                {link.label}
-              </a>
+                {l.label}
+              </Link>
             ))}
+            <Link
+              href="/#book"
+              className="inline-flex items-center rounded-xl px-4 py-2 bg-white text-black font-medium hover:bg-white/90 transition"
+            >
+              Book Now
+            </Link>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href="tel:2896825465">
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
-                <Phone className="mr-2 h-4 w-4" />
-                (289) 682-5465
-              </Button>
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
+          {/* Mobile toggle */}
           <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-white/90 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            onClick={() => setIsMobileMenuOpen(v => !v)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+      {/* Mobile panel */}
+      <div
+        className={`md:hidden bg-black text-white border-b border-white/10 transition-[max-height,opacity] duration-300 overflow-hidden
+        ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="container mx-auto px-4 py-3">
+          <ul className="flex flex-col gap-3">
+            {navLinks.map(l => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="block py-2 text-white/90 hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.label}
-                </a>
-              ))}
-              <a href="tel:2896825465" className="mt-2">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
-                  <Phone className="mr-2 h-4 w-4" />
-                  (289) 682-5465
-                </Button>
-              </a>
-            </nav>
-          </div>
-        )}
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-1">
+              <Link
+                href="/#book"
+                className="inline-flex items-center rounded-xl px-4 py-2 bg-white text-black font-medium hover:bg-white/90 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Book Now
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
-  )
+  );
 }
