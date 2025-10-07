@@ -1,6 +1,9 @@
 // components/footer.tsx
-import Image from "next/image"
-import { Facebook, Instagram, Mail } from "lucide-react"
+import Image from "next/image";
+import { Facebook, Instagram, Mail } from "lucide-react";
+
+// IMPORTANT: this file must exist at /public/logo-blink.dfc256cf.png
+import blinkLogo from "@/public/logo-blink.dfc256cf.png";
 
 export function Footer() {
   return (
@@ -11,12 +14,10 @@ export function Footer() {
             {/* Brand (black tile + white copy, matching your logo background) */}
             <div className="rounded-xl bg-[#1e1e1e] p-6 md:p-7 lg:p-8 shadow-sm">
               <Image
-                // use the EXACT file you're using now, placed in /public
-                src="public/logo-blink.dfc256cf.png"
+                src={blinkLogo}
                 alt="Blink Auto Detailing"
-                width={220}
-                height={80}
                 priority
+                // static import provides intrinsic width/height; this just controls render size
                 className="h-14 w-auto mb-4"
               />
               <p className="text-sm leading-relaxed text-white/85">
@@ -114,5 +115,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
