@@ -1,23 +1,17 @@
 // components/header.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-// IMPORTANT: this file must exist and be TRANSPARENT
-// put the 4K transparent PNG at: public/logo-blink.png
-import blinkLogo from "@/public/logo-blink.png";
+// Use the EXACT file name you have in /public
+import blinkLogo from "@/public/logo-blink.dfc256cf.png";
+
+const NAV_H = "clamp(64px,7.2vw,96px)"; // sane height
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const links = [
     { href: "/#services", label: "Services" },
@@ -26,27 +20,23 @@ export function Header() {
     { href: "/#contact",  label: "Contact" },
   ];
 
-  // single source of truth for header height
-  const navStyle = { ["--nav-h" as any]: "clamp(96px,12vw,168px)" };
-
   return (
-    <header className="fixed inset-x-0 top-0 z-50" style={navStyle}>
-      {/* exact black so it matches the logo area */}
-      <nav className={`text-white border-b border-white/10 ${scrolled ? "bg-black/95 backdrop-blur-sm" : "bg-black"}`}>
+    <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
+      {/* EXACT same color as your logo background: #1e1e1e */}
+      <nav className="bg-[#1e1e1e] text-white border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
-            {/* Logo — constrained to nav height so it never overlaps the menu */}
+            {/* Logo: never taller than the bar */}
             <Link href="/" className="inline-flex items-center select-none shrink-0">
               <Image
                 src={blinkLogo}
                 alt="Blink Auto Detailing"
                 priority
-                // keep the logo slightly inside the bar to avoid edge clipping
-                className="max-h-[calc(var(--nav-h)-18px)] w-auto object-contain"
+                className="max-h-[calc(var(--nav-h)-10px)] w-auto object-contain"
               />
             </Link>
 
-            {/* desktop links */}
+            {/* Desktop nav */}
             <ul className="hidden md:flex items-center gap-8">
               {links.map(l => (
                 <li key={l.href}>
@@ -65,7 +55,7 @@ export function Header() {
               </li>
             </ul>
 
-            {/* mobile toggle */}
+            {/* Mobile toggle */}
             <button
               className="md:hidden inline-flex items-center justify-center p-3 rounded-lg text-white/90 hover:text-white focus-visible:ring-2 focus-visible:ring-white/40"
               aria-label="Toggle menu"
@@ -85,9 +75,9 @@ export function Header() {
         </div>
       </nav>
 
-      {/* mobile panel */}
+      {/* Mobile panel (same exact color) */}
       <div
-        className={`md:hidden bg-black text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`md:hidden bg-[#1e1e1e] text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

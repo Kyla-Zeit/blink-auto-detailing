@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`font-sans ${GeistSans.variable} ${playfair.variable} antialiased`}>
+      <body className={`font-sans ${GeistSans.variable} ${playfair.variable} antialiased pt-[clamp(64px,7.2vw,96px)]`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
