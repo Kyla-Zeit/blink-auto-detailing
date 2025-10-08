@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Make all clickable controls show the hand cursor */
+button,
+[type='button'],
+[type='submit'],
+[type='reset'],
+[role='button'] {
+  @apply cursor-pointer;
+}
+
+/* Better cursor for disabled buttons */
+button:disabled,
+[disabled] {
+  @apply cursor-not-allowed;
+}
