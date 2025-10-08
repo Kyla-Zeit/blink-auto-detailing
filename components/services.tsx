@@ -43,7 +43,6 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="relative bg-[#111] text-white py-24 md:py-32">
-      {/* subtle overlay, kept very soft */}
       <div className="pointer-events-none absolute inset-0" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -53,10 +52,10 @@ export function Services() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Premium Services for
-            <span className="text-primary"> Discerning Owners</span>
+            {/* Make second line readable gray */}
+            <span className="block text-white/55">Discerning Owners</span>
           </h2>
 
-          {/* CHANGED: make this readable on black */}
           <p className="text-lg text-white/80 leading-relaxed text-pretty">
             From complete detailing to advanced protection, we offer comprehensive services
             tailored to your vehicle&apos;s needs.
@@ -94,9 +93,7 @@ export function Services() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-white/70 mb-4">
-            Call or text today for a personalized quote
-          </p>
+          <p className="text-white/70 mb-4">Call or text today for a personalized quote</p>
           <a
             href="tel:2896825465"
             className="text-xl font-semibold text-accent hover:text-accent/80 transition-colors"
