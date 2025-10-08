@@ -23,7 +23,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
       {/* Darker but same transparency + slightly dim the backdrop */}
-      <nav className="text-white border-b border-white/10 bg-black/70 backdrop-blur-md backdrop-brightness-90">
+      <nav className="text-white border-b border-white/10 bg-black/70 backdrop-blur-md backdrop-brightness-75">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
