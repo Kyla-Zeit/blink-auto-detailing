@@ -1,4 +1,4 @@
-// components/header-glass.tsx
+// components/header.tsx
 "use client"
 
 import { useState } from "react"
