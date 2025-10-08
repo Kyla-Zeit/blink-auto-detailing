@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import blinkLogo from "@/public/logo-blink.dfc256cf.png"
+import blinkLogo from "@/public/logo.png"
 
 const NAV_H = "clamp(64px,7.2vw,96px)"
 
