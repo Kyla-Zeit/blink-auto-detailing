@@ -21,7 +21,7 @@ export default function Home() {
               Gallery
             </h2>
             <p className="text-muted-foreground/80 mb-10 max-w-2xl">
-              A peek at our recent work. We’ll wire this up to your Facebook photos after you hand me the links.
+              A peek at our recent work.
             </p>
             <Gallery />
           </div>
