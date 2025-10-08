@@ -1,87 +1,152 @@
-import { Award, Star, Shield, Users } from "lucide-react"
+// components/about.tsx
+"use client"
 
-const stats = [
-  { icon: Star, value: "40+", label: "Five-Star Reviews" },
-  { icon: Award, value: "3x", label: "Diamond Awards" },
-  { icon: Shield, value: "100%", label: "Satisfaction Rate" },
-  { icon: Users, value: "664+", label: "Followers" },
-]
+import { Mail, Phone, MapPin, ShieldCheck, Trophy, Users } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-export function About() {
+export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background">
+    <section id="about" className="bg-background py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <h2
-                className="text-4xl md:text-5xl font-bold mb-6 text-balance"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                Excellence in Every
-                <span className="text-primary"> Detail</span>
-              </h2>
-              <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-                <p>
-                  At Blink Auto Detailing, we've built our reputation on delivering exceptional results for luxury and
-                  exotic vehicles throughout the Niagara region.
-                </p>
-                <p>
-                  As a <span className="text-foreground font-semibold">3x Diamond Award Winner</span>, we specialize in
-                  premium Graphene coating and meticulous detailing services that exceed expectations.
-                </p>
-                <p>
-                  Our commitment to excellence has earned us over{" "}
-                  <span className="text-foreground font-semibold">40 five-star Google reviews</span> from satisfied
-                  clients who trust us with their most prized vehicles.
-                </p>
+        {/* Title & Intro */}
+        <div className="max-w-3xl">
+          <h2
+            className="
+              font-bold leading-tight tracking-tight text-balance
+              text-[clamp(2rem,7vw,3.25rem)]
+            "
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Excellence in{" "}
+            <span className="text-primary">Every Detail</span>
+          </h2>
+
+          <p className="mt-4 text-[clamp(1rem,2.8vw,1.125rem)] text-muted-foreground">
+            At Blink Auto Detailing, we&apos;ve built our reputation on
+            delivering exceptional results for luxury and exotic vehicles
+            throughout the Niagara region.
+          </p>
+
+          <p className="mt-4 text-[clamp(1rem,2.8vw,1.125rem)] text-muted-foreground">
+            As a <span className="font-semibold text-foreground">3x Diamond Award Winner</span>, we specialize in premium Graphene coating and meticulous
+            detailing services that exceed expectations. Our commitment to excellence
+            has earned us over <span className="font-semibold text-foreground">40 five-star Google reviews</span>.
+          </p>
+        </div>
+
+        {/* Contact / Quick info */}
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <Card className="bg-card border-border">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg">Contact Us</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {/* Email */}
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Mail className="h-5 w-5 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <a
+                    href="mailto:blinkautodetailing@gmail.com"
+                    className="block font-semibold text-foreground break-all"
+                  >
+                    blinkautodetailing@gmail.com
+                  </a>
+                </div>
               </div>
 
-              <div className="mt-8 p-6 bg-card border border-border rounded-lg">
-                <p className="text-sm text-muted-foreground mb-2">Contact Us</p>
-                <div className="space-y-2">
-                  <p className="font-medium">
-                    <a
-                      href="mailto:blinkautodetailing@gmail.com"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      blinkautodetailing@gmail.com
-                    </a>
-                  </p>
-                  <p className="font-medium">
-                    <a href="tel:2896825465" className="text-accent hover:text-accent/80 transition-colors">
-                      (289) 682-5465
-                    </a>
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    181 South Service Road West, Unit 2<br />
+              {/* Phone — BLACK & readable */}
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Phone className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Call or Text</p>
+                  <a
+                    href="tel:2896825465"
+                    className="block font-semibold text-foreground cursor-pointer"
+                  >
+                    (289) 682-5465
+                  </a>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <MapPin className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="font-semibold text-foreground">
+                    181 South Service Road West, Unit 2
+                    <br />
                     Grimsby, ON L3M 4H6
                   </p>
                 </div>
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon
-                return (
-                  <div
-                    key={index}
-                    className="bg-card border border-border rounded-lg p-6 text-center hover:border-primary/50 transition-all duration-300"
-                  >
-                    <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mb-4">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: "var(--font-playfair)" }}>
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+          {/* Quick stats */}
+          <div className="grid grid-cols-2 gap-4">
+            <Card className="bg-card border-border">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Trophy className="h-5 w-5 text-primary" />
                   </div>
-                )
-              })}
-            </div>
+                  <div>
+                    <p className="text-2xl font-bold">3x</p>
+                    <p className="text-sm text-muted-foreground">Diamond Awards</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <ShieldCheck className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold">100%</p>
+                    <p className="text-sm text-muted-foreground">Satisfaction</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Users className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold">40+</p>
+                    <p className="text-sm text-muted-foreground">5-Star Reviews</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Users className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold">664+</p>
+                    <p className="text-sm text-muted-foreground">Followers</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
