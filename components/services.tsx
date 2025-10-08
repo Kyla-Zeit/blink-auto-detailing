@@ -30,7 +30,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 relative">
+    <section id="services" className="bg-[#111] text-white py-24 md:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-card to-background" />
 
       <div className="container mx-auto px-4 relative z-10">
