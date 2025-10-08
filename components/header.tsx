@@ -22,7 +22,8 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
-      <nav className="text-white border-b border-white/10 bg-[#111]/70 backdrop-blur-md">
+      {/* Darker but same transparency + slightly dim the backdrop */}
+      <nav className="text-white border-b border-white/10 bg-black/70 backdrop-blur-md backdrop-brightness-90">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
@@ -74,11 +75,11 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile panel */}
+      {/* Mobile panel – match the darker feel */}
       <div
         className={`md:hidden text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        } bg-[#111]/80 backdrop-blur-md`}
+        } bg-black/70 backdrop-blur-md backdrop-brightness-90`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ul className="flex flex-col gap-3">
