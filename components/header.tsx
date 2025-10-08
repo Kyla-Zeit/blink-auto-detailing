@@ -9,7 +9,7 @@ import blinkLogo from "@/public/logo.png"
 // Bump this if you want the logo taller
 const NAV_H = "clamp(64px,7.2vw,96px)"
 
-export function HeaderGlass() {
+export function Header() {
   const [open, setOpen] = useState(false)
 
   const links = [
