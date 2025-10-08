@@ -1,22 +1,16 @@
+// components/header-glass.tsx
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import blinkLogo from "@/public/logo.png"
+import blinkLogo from "@/public/logo-.png"
 
+// Bump this if you want the logo taller
 const NAV_H = "clamp(64px,7.2vw,96px)"
 
-export function Header() {
+export function HeaderGlass() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   const links = [
     { href: "/#services", label: "Services" },
@@ -28,8 +22,7 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
-      {/* Always solid black, matching the logo background */}
-      <nav className={`bg-[#1e1e1e] text-white border-b border-white/10 ${scrolled ? "shadow-sm" : ""}`}>
+      <nav className="text-white border-b border-white/10 bg-[#111]/70 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
@@ -44,7 +37,7 @@ export function Header() {
 
             {/* Desktop nav */}
             <ul className="hidden md:flex items-center gap-8">
-              {links.map((l) => (
+              {links.map(l => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-white/90 hover:text-white transition-colors">
                     {l.label}
@@ -65,7 +58,7 @@ export function Header() {
             <button
               className="md:hidden inline-flex items-center justify-center p-3 rounded-lg text-white/90 hover:text-white focus-visible:ring-2 focus-visible:ring-white/40"
               aria-label="Toggle menu"
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => setOpen(v => !v)}
             >
               {open ? (
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -81,15 +74,15 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile panel – solid black too */}
+      {/* Mobile panel */}
       <div
-        className={`md:hidden bg-[#1e1e1e] text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`md:hidden text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        } bg-[#111]/80 backdrop-blur-md`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ul className="flex flex-col gap-3">
-            {links.map((l) => (
+            {links.map(l => (
               <li key={l.href}>
                 <Link
                   href={l.href}
