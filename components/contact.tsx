@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="contact" className="bg-background text-foreground py-24 md:py-32"> 
       {/* Decorative gradient */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent rounded-full blur-3xl" />
