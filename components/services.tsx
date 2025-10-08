@@ -1,37 +1,50 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Sparkles, Shield, Droplets, Car } from "lucide-react"
 
 const services = [
   {
     icon: Sparkles,
     title: "Premium Detailing",
-    description: "Complete interior and exterior detailing that restores your vehicle to showroom condition.",
+    description:
+      "Complete interior and exterior detailing that restores your vehicle to showroom condition.",
     features: ["Deep cleaning", "Paint correction", "Interior restoration", "Engine bay detailing"],
   },
   {
     icon: Shield,
     title: "Graphene Coating",
-    description: "Advanced protection with premium Graphene coating technology for unmatched durability.",
+    description:
+      "Advanced protection with premium Graphene coating technology for unmatched durability.",
     features: ["10H hardness", "Hydrophobic protection", "UV resistance", "5+ year warranty"],
   },
   {
     icon: Droplets,
     title: "Ceramic Coating",
-    description: "Professional-grade ceramic coating for long-lasting shine and protection.",
+    description:
+      "Professional-grade ceramic coating for long-lasting shine and protection.",
     features: ["Scratch resistance", "Chemical protection", "Enhanced gloss", "Easy maintenance"],
   },
   {
     icon: Car,
     title: "Luxury Specialist",
-    description: "Specialized care for high-end and exotic vehicles with meticulous attention to detail.",
+    description:
+      "Specialized care for high-end and exotic vehicles with meticulous attention to detail.",
     features: ["Brand expertise", "Premium products", "Custom solutions", "White glove service"],
   },
 ]
 
 export function Services() {
   return (
-    <section id="services" className="bg-[#111] text-white py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-card to-background" />
+    <section id="services" className="relative bg-[#111] text-white py-24 md:py-32">
+      {/* subtle overlay, kept very soft */}
+      <div className="pointer-events-none absolute inset-0" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -42,9 +55,11 @@ export function Services() {
             Premium Services for
             <span className="text-primary"> Discerning Owners</span>
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            From complete detailing to advanced protection, we offer comprehensive services tailored to your vehicle's
-            needs.
+
+          {/* CHANGED: make this readable on black */}
+          <p className="text-lg text-white/80 leading-relaxed text-pretty">
+            From complete detailing to advanced protection, we offer comprehensive services
+            tailored to your vehicle&apos;s needs.
           </p>
         </div>
 
@@ -79,8 +94,13 @@ export function Services() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">Call or text today for a personalized quote</p>
-          <a href="tel:2896825465" className="text-xl font-semibold text-accent hover:text-accent/80 transition-colors">
+          <p className="text-white/70 mb-4">
+            Call or text today for a personalized quote
+          </p>
+          <a
+            href="tel:2896825465"
+            className="text-xl font-semibold text-accent hover:text-accent/80 transition-colors"
+          >
             (289) 682-5465
           </a>
         </div>
