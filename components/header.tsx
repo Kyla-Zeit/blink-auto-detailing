@@ -4,7 +4,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import blinkLogo from "@/public/logo-.png"
+import blinkLogo from "@/public/logo.png"
 
 // Bump this if you want the logo taller
 const NAV_H = "clamp(64px,7.2vw,96px)"
