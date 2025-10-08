@@ -57,7 +57,7 @@ export function Services() {
           </h2>
 
           {/* CHANGED: make this readable on black */}
-          <p className="text-lg text-white leading-relaxed text-pretty">
+          <p className="text-lg text-white/80 leading-relaxed text-pretty">
             From complete detailing to advanced protection, we offer comprehensive services
             tailored to your vehicle&apos;s needs.
           </p>
