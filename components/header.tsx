@@ -8,7 +8,7 @@ import blinkLogo from "@/public/logo-blink.dfc256cf.png"
 
 const NAV_H = "clamp(64px,7.2vw,96px)"
 
-export function HeaderSmart() {
+export function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -19,13 +19,13 @@ export function HeaderSmart() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const links = [
-    { href: "/#services", label: "Services" },
-    { href: "/#about",    label: "About" },
-    { href: "/#gallery",  label: "Gallery" },
-    { href: "/#reviews",  label: "Reviews" },
-    { href: "/#contact",  label: "Contact" },
-  ]
+const links = [
+  { href: "/#services", label: "Services" },
+  { href: "/#about",    label: "About" },
+  { href: "/#gallery",  label: "Gallery" }, 
+  { href: "/#reviews",  label: "Reviews" },
+  { href: "/#contact",  label: "Contact" },
+];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
