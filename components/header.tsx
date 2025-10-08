@@ -1,39 +1,51 @@
-// components/header.tsx
-"use client";
+// components/header-smart.tsx
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import blinkLogo from "@/public/logo-blink.dfc256cf.png"
 
-// Use the EXACT file name you have in /public
-import blinkLogo from "@/public/logo-blink.dfc256cf.png";
+const NAV_H = "clamp(64px,7.2vw,96px)"
 
-const NAV_H = "clamp(64px,7.2vw,96px)"; // sane height
+export function HeaderSmart() {
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-export function Header() {
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   const links = [
     { href: "/#services", label: "Services" },
     { href: "/#about",    label: "About" },
-    { href: "#gallery", label: "Gallery" },
+    { href: "/#gallery",  label: "Gallery" },
     { href: "/#reviews",  label: "Reviews" },
     { href: "/#contact",  label: "Contact" },
-  ];
+  ]
 
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
-      {/* EXACT same color as your logo background: #1e1e1e */}
-      <nav className="bg-[#1e1e1e] text-white border-b border-white/10">
+      <nav
+        className={[
+          "text-white border-b transition-all duration-300",
+          scrolled
+            ? "bg-[#111]/90 backdrop-blur-md border-white/10 shadow-sm"
+            : "bg-transparent border-transparent backdrop-blur-0",
+        ].join(" ")}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
-            {/* Logo: never taller than the bar */}
+            {/* Logo */}
             <Link href="/" className="inline-flex items-center select-none shrink-0">
               <Image
                 src={blinkLogo}
                 alt="Blink Auto Detailing"
                 priority
-                className="max-h-[calc(var(--nav-h)-1px)] w-auto object-contain"
+                className="max-h-[calc(var(--nav-h)-10px)] w-auto object-contain"
               />
             </Link>
 
@@ -41,7 +53,10 @@ export function Header() {
             <ul className="hidden md:flex items-center gap-8">
               {links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/90 hover:text-white transition-colors">
+                  <Link
+                    href={l.href}
+                    className={`transition-colors ${scrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}`}
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -49,7 +64,11 @@ export function Header() {
               <li>
                 <Link
                   href="/#book"
-                  className="inline-flex items-center rounded-xl px-5 py-2.5 bg-white text-black font-medium hover:bg-white/90 transition"
+                  className={`inline-flex items-center rounded-xl px-5 py-2.5 font-medium transition ${
+                    scrolled
+                      ? "bg-white text-black hover:bg-white/90"
+                      : "bg-white/90 text-black hover:bg-white"
+                  }`}
                 >
                   Book Now
                 </Link>
@@ -76,11 +95,11 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile panel (same exact color) */}
+      {/* Mobile panel – keep it solid so links are readable over content */}
       <div
-        className={`md:hidden bg-[#1e1e1e] text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`md:hidden text-white overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        } ${scrolled ? "bg-[#111]/95 backdrop-blur-md border-b border-white/10" : "bg-[#111]/90 backdrop-blur-md"}`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ul className="flex flex-col gap-3">
@@ -108,5 +127,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
