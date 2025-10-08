@@ -41,7 +41,7 @@ export function Reviews() {
             <span className="text-primary"> Vehicle Owners</span>
           </h2>
           <p className="text-lg text-muted-foreground text-pretty">
-            Don't just take our word for it - see what our clients have to say about their experience.
+            Don&apos;t just take our word for it — see what our clients have to say about their experience.
           </p>
         </div>
 
@@ -52,13 +52,23 @@ export function Reviews() {
               className="bg-background border-border hover:border-primary/50 transition-all duration-300"
             >
               <CardContent className="pt-6">
+                {/* Stars */}
                 <div className="flex items-center gap-1 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < review.rating
+                          ? "text-yellow-400 fill-yellow-400" // filled star
+                          : "text-muted-foreground" // empty (stroke only)
+                      }`}
+                    />
                   ))}
                 </div>
+
                 <Quote className="h-8 w-8 text-primary/20 mb-3" />
                 <p className="text-foreground mb-4 leading-relaxed">{review.text}</p>
+
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div>
                     <p className="font-semibold text-foreground">{review.name}</p>
@@ -79,7 +89,7 @@ export function Reviews() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
           >
-            <Star className="h-4 w-4 fill-accent text-accent" />
+            <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
             40+ Five-Star Google Reviews
           </a>
         </div>
