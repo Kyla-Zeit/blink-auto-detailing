@@ -1,3 +1,4 @@
+// components/contact.tsx
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -28,78 +29,78 @@ export function Contact() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Phone */}
-            <Card className="bg-[#1a1a1a] border-white/10">
+            <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-white" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Call or Text</h3>
+                  <div className="text-foreground">
+                    <h3 className="font-semibold text-lg mb-2">Call or Text</h3>
                     <a
                       href="tel:2896825465"
-                      className="text-base md:text-lg font-normal text-white hover:text-white/80 transition-colors"
+                      className="text-base md:text-lg hover:text-foreground/80 transition-colors"
                     >
                       (289) 682-5465
                     </a>
-                    <p className="text-sm text-white/60 mt-2">Available for quotes and bookings</p>
+                    <p className="text-sm text-muted-foreground mt-2">Available for quotes and bookings</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Email */}
-            <Card className="bg-[#1a1a1a] border-white/10">
+            <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-white" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Email Us</h3>
+                  <div className="text-foreground">
+                    <h3 className="font-semibold text-lg mb-2">Email Us</h3>
                     <a
                       href="mailto:blinkautodetailing@gmail.com"
-                      className="text-base md:text-lg font-normal text-white hover:text-white/80 transition-colors break-all"
+                      className="text-base md:text-lg hover:text-foreground/80 transition-colors break-all"
                     >
                       blinkautodetailing@gmail.com
                     </a>
-                    <p className="text-sm text-white/60 mt-2">We'll respond within 24 hours</p>
+                    <p className="text-sm text-muted-foreground mt-2">We’ll respond within 24 hours</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Address */}
-            <Card className="bg-[#1a1a1a] border-white/10">
+            <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Visit Us</h3>
-                    <p className="text-white/90">
+                  <div className="text-foreground">
+                    <h3 className="font-semibold text-lg mb-2">Visit Us</h3>
+                    <p>
                       181 South Service Road West, Unit 2
                       <br />
                       Grimsby, ON L3M 4H6
                     </p>
-                    <p className="text-sm text-white/60 mt-2">Proudly serving Niagara</p>
+                    <p className="text-sm text-muted-foreground mt-2">Proudly serving Niagara</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Hours */}
-            <Card className="bg-[#1a1a1a] border-white/10">
+            <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-white" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Hours</h3>
-                    <p className="text-white/90">By Appointment Only</p>
-                    <p className="text-sm text-white/60 mt-2">Flexible scheduling available</p>
+                  <div className="text-foreground">
+                    <h3 className="font-semibold text-lg mb-2">Hours</h3>
+                    <p>By Appointment Only</p>
+                    <p className="text-sm text-muted-foreground mt-2">Flexible scheduling available</p>
                   </div>
                 </div>
               </CardContent>
