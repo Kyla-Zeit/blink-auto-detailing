@@ -33,7 +33,7 @@ export function Header() {
                 src={blinkLogo}
                 alt="Blink Auto Detailing"
                 priority
-                className="max-h-[calc(var(--nav-h)-50px)] w-auto object-contain"
+                className="max-h-[calc(var(--nav-h)-2px)] w-auto object-contain"
               />
             </Link>
 
