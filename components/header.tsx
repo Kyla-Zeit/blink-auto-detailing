@@ -1,4 +1,3 @@
-// components/header-smart.tsx
 "use client"
 
 import { useEffect, useState } from "react"
@@ -19,24 +18,18 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#about",    label: "About" },
-  { href: "/#gallery",  label: "Gallery" }, 
-  { href: "/#reviews",  label: "Reviews" },
-  { href: "/#contact",  label: "Contact" },
-];
+  const links = [
+    { href: "/#services", label: "Services" },
+    { href: "/#about",    label: "About" },
+    { href: "/#gallery",  label: "Gallery" },
+    { href: "/#reviews",  label: "Reviews" },
+    { href: "/#contact",  label: "Contact" },
+  ]
 
   return (
     <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
-      <nav
-        className={[
-          "text-white border-b transition-all duration-300",
-          scrolled
-            ? "bg-[#111]/90 backdrop-blur-md border-white/10 shadow-sm"
-            : "bg-transparent border-transparent backdrop-blur-0",
-        ].join(" ")}
-      >
+      {/* Always solid black, matching the logo background */}
+      <nav className={`bg-[#1e1e1e] text-white border-b border-white/10 ${scrolled ? "shadow-sm" : ""}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
@@ -51,12 +44,9 @@ const links = [
 
             {/* Desktop nav */}
             <ul className="hidden md:flex items-center gap-8">
-              {links.map(l => (
+              {links.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className={`transition-colors ${scrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}`}
-                  >
+                  <Link href={l.href} className="text-white/90 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -64,11 +54,7 @@ const links = [
               <li>
                 <Link
                   href="/#book"
-                  className={`inline-flex items-center rounded-xl px-5 py-2.5 font-medium transition ${
-                    scrolled
-                      ? "bg-white text-black hover:bg-white/90"
-                      : "bg-white/90 text-black hover:bg-white"
-                  }`}
+                  className="inline-flex items-center rounded-xl px-5 py-2.5 bg-white text-black font-medium hover:bg-white/90 transition"
                 >
                   Book Now
                 </Link>
@@ -79,7 +65,7 @@ const links = [
             <button
               className="md:hidden inline-flex items-center justify-center p-3 rounded-lg text-white/90 hover:text-white focus-visible:ring-2 focus-visible:ring-white/40"
               aria-label="Toggle menu"
-              onClick={() => setOpen(v => !v)}
+              onClick={() => setOpen((v) => !v)}
             >
               {open ? (
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -95,15 +81,15 @@ const links = [
         </div>
       </nav>
 
-      {/* Mobile panel – keep it solid so links are readable over content */}
+      {/* Mobile panel – solid black too */}
       <div
-        className={`md:hidden text-white overflow-hidden transition-[max-height,opacity] duration-300 ${
+        className={`md:hidden bg-[#1e1e1e] text-white border-b border-white/10 overflow-hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        } ${scrolled ? "bg-[#111]/95 backdrop-blur-md border-b border-white/10" : "bg-[#111]/90 backdrop-blur-md"}`}
+        }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <ul className="flex flex-col gap-3">
-            {links.map(l => (
+            {links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
