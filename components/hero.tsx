@@ -39,9 +39,13 @@ export function Hero() {
 
           {/* Social Proof */}
           <div className="flex items-center justify-center gap-2 mb-10 animate-fade-in-up animation-delay-300">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+            <div className="flex" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                  aria-hidden="true"
+                />
               ))}
             </div>
             <span className="text-sm font-medium text-foreground">40+ Five-Star Google Reviews</span>
