@@ -4,7 +4,7 @@
 import { Mail, Phone, MapPin, ShieldCheck, Trophy, Users } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function About() {
+export function About() {
   return (
     <section id="about" className="bg-background py-20 md:py-28">
       <div className="container mx-auto px-4">
