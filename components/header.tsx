@@ -6,9 +6,6 @@ import Link from "next/link"
 import Image from "next/image"
 import blinkLogo from "@/public/logo.png"
 
-// Bump this if you want the logo taller
-const NAV_H = "clamp(64px,7.2vw,96px)"
-
 export function Header() {
   const [open, setOpen] = useState(false)
 
@@ -21,21 +18,22 @@ export function Header() {
   ]
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50" style={{ ["--nav-h" as any]: NAV_H }}>
+    // Bigger nav height on mobile so the taller logo fits cleanly
+    <header className="fixed inset-x-0 top-0 z-50 [--nav-h:120px] sm:[--nav-h:136px] md:[--nav-h:96px]">
       {/* Darker but same transparency + slightly dim the backdrop */}
       <nav className="text-white border-b border-white/10 bg-black/70 backdrop-blur-md backdrop-brightness-75">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center select-none shrink-0">
-<Image
-  src={blinkLogo}
-  alt="Blink Auto Detailing"
-  priority
-  // Taller on mobile, then follow the nav height on md+
-  className="h-14 sm:h-16 md:h-[calc(var(--nav-h)-8px)] w-auto object-contain max-h-none"
-  sizes="(max-width: 640px) 170px, (max-width: 768px) 190px, 220px"
-/>
+              <Image
+                src={blinkLogo}
+                alt="Blink Auto Detailing"
+                priority
+                // Way bigger on mobile, then follow the nav height on md+
+                className="h-28 sm:h-32 md:h-[calc(var(--nav-h)-8px)] w-auto object-contain max-h-none"
+                sizes="(max-width: 640px) 220px, (max-width: 768px) 240px, 260px"
+              />
             </Link>
 
             {/* Desktop nav */}
