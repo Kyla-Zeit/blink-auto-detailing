@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* matches your nav height */
+}
+
 :root {
   /* Deep blacks and charcoals for premium automotive feel */
   --background: oklch(1 0 0);
