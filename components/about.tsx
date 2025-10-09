@@ -50,7 +50,11 @@ export function About() {
                     </a>
                   </p>
                   <p className="font-medium">
-                    <a href="tel:2896825465" className="text-accent hover:text-accent/80 transition-colors">
+                    {/* CHANGED: make phone number black/foreground for readability */}
+                    <a
+                      href="tel:2896825465"
+                      className="text-foreground hover:text-foreground/80 transition-colors"
+                    >
                       (289) 682-5465
                     </a>
                   </p>
