@@ -3,6 +3,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Star, Award } from "lucide-react"
+import AwardBadge from "@/components/award-badge"
 
 export function Hero() {
   return (
@@ -19,13 +20,9 @@ export function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl md:max-w-5xl mx-auto text-center">
           {/* Awards Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-card border border-border mb-6 md:mb-8 animate-fade-in">
-            <Award className="h-4 w-4 text-accent" />
-            <span className="text-xs md:text-sm font-medium text-muted-foreground">
-              3x Diamond Award Winner
-            </span>
-          </div>
-
+          <div className="flex justify-center mb-8">
+  <AwardBadge />
+</div>
           {/* Main Headline */}
           <h1
             className="
