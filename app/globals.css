@@ -138,3 +138,13 @@ button:disabled,
 [disabled] {
   @apply cursor-not-allowed;
 }
+
+/* Make backgrounds span the entire viewport width even inside a centered wrapper */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
