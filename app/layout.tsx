@@ -20,17 +20,13 @@ export const metadata: Metadata = {
     generator: 'v0.app'
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`font-sans ${GeistSans.variable} ${playfair.variable} antialiased pt-[clamp(64px,7.2vw,96px)]`}>
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+    <html lang="en" className="overflow-x-clip">    {/*  ← blocks any stray side scroll */}
+      <body className="antialiased overflow-x-clip"> {/*  ← belt & suspenders */}
+        {children}
       </body>
     </html>
   )
 }
+
