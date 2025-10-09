@@ -28,12 +28,14 @@ export function Header() {
           <div className="flex items-center justify-between h-[var(--nav-h)]">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center select-none shrink-0">
-              <Image
-                src={blinkLogo}
-                alt="Blink Auto Detailing"
-                priority
-                className="max-h-[calc(var(--nav-h)-10px)] w-auto object-contain"
-              />
+<Image
+  src={blinkLogo}
+  alt="Blink Auto Detailing"
+  priority
+  // Taller on mobile, then follow the nav height on md+
+  className="h-14 sm:h-16 md:h-[calc(var(--nav-h)-8px)] w-auto object-contain max-h-none"
+  sizes="(max-width: 640px) 170px, (max-width: 768px) 190px, 220px"
+/>
             </Link>
 
             {/* Desktop nav */}
