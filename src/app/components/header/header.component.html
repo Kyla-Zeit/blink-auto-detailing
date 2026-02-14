@@ -1,0 +1,61 @@
+<header class="header">
+  <div class="container">
+    <div class="nav-wrapper">
+      <!-- Logo -->
+      <a href="/" class="logo" (click)="scrollToSection('#home', $event)">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+          <polygon points="12 15 17 21 7 21 12 15"></polygon>
+        </svg>
+        <span class="logo-text">Blink Auto Detailing</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <a *ngFor="let link of navLinks" 
+           [href]="link.href" 
+           class="nav-link"
+           (click)="scrollToSection(link.href, $event)">
+          {{ link.label }}
+        </a>
+        <a href="#contact" 
+           class="btn-book" 
+           (click)="scrollToSection('#contact', $event)">
+          Book Now
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" 
+              (click)="toggleMenu()" 
+              [attr.aria-label]="'Toggle menu'">
+        <svg *ngIf="!isMenuOpen" class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+        <svg *ngIf="isMenuOpen" class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="nav-mobile" [class.active]="isMenuOpen">
+    <nav class="nav-mobile-content">
+      <a *ngFor="let link of navLinks" 
+         [href]="link.href" 
+         class="nav-link-mobile"
+         (click)="scrollToSection(link.href, $event)">
+        {{ link.label }}
+      </a>
+      <a href="#contact" 
+         class="btn-book-mobile" 
+         (click)="scrollToSection('#contact', $event)">
+        Book Now
+      </a>
+    </nav>
+  </div>
+</header>

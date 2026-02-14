@@ -1,0 +1,51 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2 class="section-title">Excellence in<br>Every Detail</h2>
+        <p class="section-description">
+          At Blink Auto Detailing, we've built our reputation on delivering exceptional results for luxury and exotic vehicles throughout the Niagara region.
+        </p>
+        <p class="section-description">
+          As a <strong>3x Diamond Award Winner</strong>, we specialize in premium Graphene coating and meticulous detailing services that exceed expectations.
+        </p>
+        <p class="section-description">
+          Our commitment to excellence has earned us over <strong>40 five-star Google reviews</strong> from satisfied clients who trust us with their most prized vehicles.
+        </p>
+
+        <div class="contact-box">
+          <h3>Contact Us</h3>
+          <p><strong>blinkautodetailing&#64;gmail.com</strong></p>
+          <p><strong>(289) 682-5465</strong></p>
+          <p>181 South Service Road West, Unit 2<br>Grimsby, ON L3M 4H6</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div *ngFor="let stat of stats" class="stat-card">
+          <div class="stat-icon">
+            <svg *ngIf="stat.label === 'Five-Star Reviews'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg *ngIf="stat.label === 'Diamond Awards'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg *ngIf="stat.label === 'Satisfaction Rate'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <svg *ngIf="stat.label === 'Followers'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <p class="stat-value">{{ stat.value }}</p>
+          <p class="stat-label">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

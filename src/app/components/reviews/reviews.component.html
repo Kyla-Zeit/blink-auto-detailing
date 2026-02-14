@@ -1,0 +1,32 @@
+<section id="reviews" class="reviews-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Trusted by Luxury Vehicle Owners</h2>
+      <p class="section-description">
+        Don't just take our word for it—hear from our satisfied clients who trust us with their prized vehicles.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+      <div *ngFor="let review of reviews" class="review-card">
+        <div class="rating">
+          <span *ngFor="let star of getRatingArray(review.rating)" class="star">★</span>
+        </div>
+        <p class="review-text">{{ review.text }}</p>
+        <div class="review-footer">
+          <p class="review-author">{{ review.author }}</p>
+          <p class="review-date">{{ review.date }}</p>
+        </div>
+      </div>
+    </div>
+
+<div class="review-cta">
+      <a href="https://www.google.com/search?sca_esv=f736710e6b71d7f5&sxsrf=ANbL-n6PZRUbCjEBSYlDaQ5S1gnWgIb7_g:1771043071668&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOdwDCPUiDfVgf8VTqRj8zexnto5007tylps3Z5I4PcU2gOfEVGNnm0dIwgd-_JNDi7Aop3HJoBP1jHD2XfP8OtiXSyBXAsjVOSpZ2j7Mux4fmB58-Q%3D%3D&q=BLINK+Auto+Detailing+Reviews&sa=X&ved=2ahUKEwjCuKzJkdiSAxW5MtAFHSYIBHcQ0bkNegQIJRAF&biw=1745&bih=901&dpr=1.1" target="_blank" class="google-reviews-link">
+        <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        40+ Five-Star Google Reviews
+      </a>
+    </div>
+  </div>
+</section>

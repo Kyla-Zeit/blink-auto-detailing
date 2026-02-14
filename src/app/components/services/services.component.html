@@ -1,0 +1,32 @@
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Premium Services for<br>Discerning Owners</h2>
+      <p class="section-description">
+        From complete detailing to advanced protection, we offer comprehensive services tailored to your vehicle's needs.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div *ngFor="let service of services" class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <ul class="features-list">
+          <li *ngFor="let feature of service.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <p>Call us out today for a personalized quote</p>
+      <p class="cta-phone">(289) 682-5465</p>
+    </div>
+  </div>
+</section>
+
